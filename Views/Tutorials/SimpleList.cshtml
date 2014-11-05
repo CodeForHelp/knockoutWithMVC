@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Simple List";
+}
+
+<style type="text/css">
+    
+    body { font-family: arial; font-size: 14px; }
+    .wrapper { padding: 1em; background-color: #EEEEDD; border: 1px solid #CCC; max-width: 655px; }
+    .wrapper input { font-family: Arial; }
+    .wrapper b { font-weight: bold; }
+    .liveExample p { margin-top: 0.9em; margin-bottom: 0.9em; }
+    .wrapper select[multiple] { width: 100%; height: 8em; }
+    .wrapper h2 { margin-top: 0.4em; }
+
+</style>
+
+<h2>@ViewBag.Title</h2>
+
+<br />
+
+<div class='wrapper'>
+    <form data-bind="submit: addItem">
+        New item: <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+        <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+        <p>Your items:</p>
+        <select multiple="multiple" data-bind="options: items"></select>
+    </form>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/ViewModel/SimpleList.js")
+}

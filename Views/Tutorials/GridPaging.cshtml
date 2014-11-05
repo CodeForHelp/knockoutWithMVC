@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Grid Paging";
+}
+
+<style type="text/css">
+    
+    body { font-family: arial; font-size: 14px; }
+    .wrapper { padding: 1em; background-color: #EEEEDD; border: 1px solid #CCC; max-width: 655px; }
+    .wrapper input { font-family: Arial; }
+    .wrapper b { font-weight: bold; }
+    .wrapper p { margin-top: 0.9em; margin-bottom: 0.9em; }
+    .wrapper select[multiple] { width: 100%; height: 8em; }
+    .wrapper h2 { margin-top: 0.4em; }
+
+    .ko-grid { margin-bottom: 1em; width: 25em; border: 1px solid silver; background-color:White; }
+    .ko-grid th { text-align:left; background-color: Black; color:White; }
+    .ko-grid td, th { padding: 0.4em; }
+    .ko-grid tr:nth-child(odd) { background-color: #DDD; }
+    .ko-grid-pageLinks { margin-bottom: 1em; }
+    .ko-grid-pageLinks a { padding: 0.5em; }
+    .ko-grid-pageLinks a.selected { background-color: Black; color: White; }
+
+    /* Mobile Safari reflows pages slowly, so fix the height to avoid the need for reflows */
+    .liveExample { height:20em; overflow:auto } 
+
+    li { list-style-type: disc; margin-left: 20px; }
+
+</style>
+
+<h2>@ViewBag.Title</h2>
+
+<br />
+
+<div class='wrapper'> 
+    
+    <div data-bind='simpleGrid: gridViewModel'> </div>
+     
+    <button data-bind='click: sortByName'>
+        Sort by name
+    </button>
+     
+    <button data-bind='click: jumpToFirstPage, enable: gridViewModel.currentPageIndex'>
+        Jump to first page
+    </button>
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/knockout.simpleGrid.3.0.js")
+    @Scripts.Render("~/Scripts/ViewModel/GridPaging.js")
+}

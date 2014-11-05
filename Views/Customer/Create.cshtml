@@ -1,0 +1,53 @@
+﻿<div class="span12">
+    <fieldset>
+        <legend>@ViewBag.Title</legend>
+        <b style="color: red;">Required Fields (*) must be filled!</b>
+        <br />
+        <div id="message"></div>
+        <br />
+        <div class="control-group">
+            <label class="control-label">
+                FirstName
+            </label>
+            <div class="controls">
+                <label data-bind="value: Id" />
+                <input type="text" data-bind="value: FirstName" placeholder="First Name" class="input-medium" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                LastName
+            </label>
+            <div class="controls">
+                <input type="text" data-bind="value: LastName" placeholder="Last Name" class="input-medium" />
+                <b style="color: red;">*</b>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                LoginId
+            </label>
+            <div class="controls">
+                <input type="text" data-bind="value: LoginId" placeholder="LoginId" class="input-medium" />
+                <b style="color: red;">*</b>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                Password
+            </label>
+            <div class="controls">
+                <input type="password" data-bind="value: Password" placeholder="Password" class="input-medium" />
+                <b style="color: red;">*</b>
+            </div>
+        </div>
+        <div class="control-group">
+            <input type="button" value="Save" data-bind="click: btnCreate" class="btn btn-primary" />
+            <a href="@Url.Action("Index", "Customer")" class="btn btn-primary">Cancel</a>
+        </div>
+    </fieldset>
+</div>
+
+@section Scripts {
+   @Scripts.Render("~/Scripts/ViewModel/CreateCustomerVM.js")
+}

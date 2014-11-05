@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/bootstrap-responsive.min.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+</head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/Customer">MVC Using KnockoutJS</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="/Tutorials/WordConcatenation">Word Contenation</a></li>
+                            <li class="active"><a href="/Tutorials/SimpleList">Simple List</a></li>
+                            <li class="active"><a href="/Tutorials/BetterList">Better List</a></li>
+                            <li class="active"><a href="/Tutorials/ClickCounter">Click Counter</a></li>
+                            <li class="active"><a href="/Tutorials/GridPaging">Grid Paging</a></li>
+                            <li class="active"><a href="/Tutorials/AnimatedTransition">Animated Transition</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.nav-collapse -->
+                </div>
+                <!-- /.container -->
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="row-fluid">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+            <hr>
+            <footer>
+                <p>&copy; 2014</p>
+            </footer>
+        </div>
+        <!--/.fluid-container-->
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/knockout")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

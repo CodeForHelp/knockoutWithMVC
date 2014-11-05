@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Manage Customers";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Customer")" class="btn btn-primary">Create New »</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>LoginId</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: customerList">
+        <tr>
+            <td>
+                <span data-bind="text: FirstName != '' ? FirstName : 'N/A'"></span>
+            </td>
+            <td>
+                <span data-bind="text: LastName"></span>
+            </td>
+            <td>
+                <span data-bind="text: LoginId"></span>
+            </td>
+            <td>
+                <a data-bind="click: editCustomer">Edit</a> | 
+                <a data-bind="click: deleteCustomer">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/ViewModel/CustomerListVM.js")
+}
